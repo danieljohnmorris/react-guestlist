@@ -1,25 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import GuestlistItem from "./GuestlistItem.js";
+import GuestlistVipItem from "./GuestlistVipItem.js";
 
 class Guestlist extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      guestlist: this.props.guestlist
+      cityTitle: this.props.cityTitle || "?",
+      eventTitle: this.props.eventTitle || "?",
+      items: this.props.items
     };
+    // console.log(this.state.items);
   }
   render() {
     var items = [];
-    const numItems = this.state.guestlist.length;
-    console.log(numItems);
+    const numItems = this.state.items.length;
     for (var i = 0; i < numItems; i++) {
-      console.log(this.props.guestlist[i]);
-      items.push(<GuestlistItem guest={this.props.guestlist[i]} />);
+      var guest = this.state.items[i];
+      // console.log(guest);
+      if (guest.type == "vip") {
+        items.push(<GuestlistVipItem guest={guest} />);
+      } else {
+        items.push(<GuestlistItem guest={guest} />);
+      }
     }
 
-    return <ul>{items}</ul>;
+    return (
+      <div>
+        <h1>
+          {this.state.cityTitle} - {this.state.eventTitle}
+        </h1>
+        <ul>{items}</ul>
+      </div>
+    );
   }
 }
 

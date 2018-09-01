@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HelloUser from "./HelloUser.js";
 import Guestlist from "./Guestlist.js";
 
 // function App() {
@@ -45,11 +44,19 @@ class App extends React.Component {
     ];
 
     this.state = {
-      guestlist: guestlistItems
+      guestlistItems: guestlistItems,
+      cityTitle: "London",
+      eventTitle: "13 Sept, Hoxton"
     };
   }
   render() {
-    return <Guestlist guestlist={this.state.guestlist} />;
+    return (
+      <Guestlist
+        cityTitle={this.state.cityTitle}
+        eventTitle={this.state.eventTitle}
+        items={this.state.guestlistItems}
+      />
+    );
   }
 }
 

@@ -2,3 +2,10 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+ul {
+}
+li {
+  padding: 10px 10px;
+  /* background-color: red; */
+}

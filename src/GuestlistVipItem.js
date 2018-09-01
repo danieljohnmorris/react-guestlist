@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-class GuestlistItem extends React.Component {
+class GuestlistVipItem extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <li>
-        {this.props.guest.first_name} {this.props.guest.last_name}
+        VIP: {this.props.guest.first_name} {this.props.guest.last_name}
       </li>
     );
   }
 }
 
-module.exports = GuestlistItem;
+module.exports = GuestlistVipItem;
